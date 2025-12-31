@@ -14,7 +14,8 @@ A simple IT terminology dictionary website built with PHP & MySQL.
 - Git
 
 ## Screenshots
-![Homepage](screenshot.png)
+![IT Dictionary](images/screenshot.png)
+
 
 
 ## How to run locally
