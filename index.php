@@ -53,20 +53,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <h2>Danh sách từ</h2>
 
 <?php
-// 1. Mặc định là lấy tất cả từ mới nhất lên đầu
 $sql = "SELECT * FROM words";
 
-// 2. Kiểm tra: Nếu m có nhập gì đó vào ô tìm kiếm (query)
 if (isset($_GET['query']) && !empty($_GET['query'])) {
     $q = $_GET['query'];
-    // Sửa câu lệnh SQL: Tìm trong cột 'word' HOẶC 'meaning' có chứa chữ m nhập
    $sql = "SELECT * FROM words WHERE word LIKE '%$q%'";
 }
 
-// 3. Luôn sắp xếp theo ID giảm dần
 $sql .= " ORDER BY id DESC";
 
-// 4. Chạy câu lệnh SQL đã chốt
+
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -80,13 +76,15 @@ if ($result->num_rows > 0) {
           </tr>";
 
     while ($row = $result->fetch_assoc()) {
-        echo "<tr>";
-        echo "<td>" . $row['id'] . "</td>";
-        echo "<td>" . $row['word'] . "</td>";
-        echo "<td>" . $row['meaning'] . "</td>";
-        echo "<td>" . $row['type'] . "</td>";
-        echo "<td>" . $row['example'] . "</td>";
-        echo "</tr>";
+  echo "<tr>";
+    echo "<td>" . $row['id'] . "</td>";
+    echo "<td>" . $row['word'] . "</td>";
+    echo "<td>" . $row['meaning'] . "</td>";
+    echo "<td>" . $row['type'] . "</td>";
+    echo "<td>" . $row['example'] . "</td>";
+    // Nút xóa truyền ID qua thanh địa chỉ (GET)
+    echo "<td><a href='delete.php?id=" . $row['id'] . "' onclick='return confirm(\"Bạn chắc chắn muốn xóa chứ?\")'>Xóa</a></td>";
+    echo "</tr>";
     }
 
     echo "</table>";
