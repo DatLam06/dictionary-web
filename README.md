@@ -13,7 +13,7 @@ Một ứng dụng web đơn giản giúp quản lý và tra cứu các thuật 
 - **Công cụ**: XAMPP, VS Code, Git/GitHub
 
 ## 📸 Ảnh chụp giao diện
-![Giao diện ứng dụng](screenshot.png)
+![Giao diện ứng dụng](screenshot2.png)
 
 ## ⚙️ Hướng dẫn cài đặt (Local)
 1. Clone project về máy hoặc tải file Zip.
