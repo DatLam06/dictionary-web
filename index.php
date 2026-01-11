@@ -76,14 +76,19 @@ if ($result->num_rows > 0) {
           </tr>";
 
     while ($row = $result->fetch_assoc()) {
-  echo "<tr>";
+    echo "<tr>";
     echo "<td>" . $row['id'] . "</td>";
     echo "<td>" . $row['word'] . "</td>";
     echo "<td>" . $row['meaning'] . "</td>";
     echo "<td>" . $row['type'] . "</td>";
     echo "<td>" . $row['example'] . "</td>";
     // Nút xóa truyền ID qua thanh địa chỉ (GET)
-    echo "<td><a href='delete.php?id=" . $row['id'] . "' onclick='return confirm(\"Bạn chắc chắn muốn xóa chứ?\")'>Xóa</a></td>";
+    echo "<td>";
+        echo "<a href='edit.php?id=" . $row['id'] . "'>Sửa</a>"; 
+        echo " | ";
+        echo "<a href='delete.php?id=" . $row['id'] . "' onclick='return confirm(\"Bạn chắc chắn muốn xóa chứ?\")'>Xóa</a>";
+       
+    echo "</td>";
     echo "</tr>";
     }
 
